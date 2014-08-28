@@ -1,9 +1,11 @@
 package cp.CMS;
 
+import java.util.Date;
 import java.util.List;
 
 import cp.Base.AdminModel;
 import cp.Base.GridPage;
+import cp.Base.MemeryStore;
 import cp.Base.OperationResult;
 
 
@@ -28,8 +30,21 @@ public class AdminProvider {
 	     {
 	    	 return null;
 	     }
-	     public  OperationResult<Boolean> VerfiyUser(String loginName,String password)
+	     //验证用户和密码
+	     public  long VerfiyUser(String loginName,String password)
 	     {
-	    	 return null;
+	    	 Date t1=new Date();
+	    	 long sessionId=t1.getTime();
+	    	 int adminId=0;
+	    	 
+	    	 if(adminId>0)
+	    	 LoginInfoStore(adminId,sessionId);
+	    	 return sessionId;
+	     }
+	     private void LoginInfoStore(int adminId,long sessionId){
+	    	 MemeryStore.GetInstance().Store(adminId, sessionId);
+	     }
+	     public Boolean IsLogin(int adminId,long sessionId){
+	    	 return false;
 	     }
 }
