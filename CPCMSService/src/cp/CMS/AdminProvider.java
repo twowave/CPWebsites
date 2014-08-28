@@ -45,6 +45,9 @@ public class AdminProvider {
 	    	 MemeryStore.GetInstance().Store(adminId, sessionId);
 	     }
 	     public Boolean IsLogin(int adminId,long sessionId){
+	    	 int admin=-1;
+	    	 admin=MemeryStore.GetInstance().Get(sessionId);
+	    	 if(admin==adminId) return true;
 	    	 return false;
 	     }
 }
