@@ -1,0 +1,5 @@
+package cp.Dao;
+/*Ä£°åÊý¾Ýdao²ã*/
+public class PageTemplateDao {
+
+}
